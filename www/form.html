@@ -6,23 +6,31 @@
     <script type="text/javascript" src="js/geturi.js"></script>
     <script type="text/javascript">
     $(document).ready(function() {
-        var id = decodeURI(getUrlVars()["id"]);
-        var title = decodeURI(getUrlVars()["title"]);
-        var duration = decodeURI(getUrlVars()["duration"]);
-        var price = decodeURI(getUrlVars()["price"]);
-        $("#id").val(id);
-        $("#title").val(title);
-        $("#duration").val(duration);
-        $("#price").val(price);
+        var id_mhs= decodeURI(getUrlVars()["id_mhs"]);
+        var nama = decodeURI(getUrlVars()["nama"]);
+        var nim = decodeURI(getUrlVars()["nim"]);
+        var progdi = decodeURI(getUrlVars()["progdi"]);
+        var no_telp = decodeURI(getUrlVars()["no_telp"]);
+		var email = decodeURI(getUrlVars()["email"]);
+        
+        $("#id_mhs").val(id_mhs);
+        $("#nama").val(nama);
+        $("#nim").val(nim);
+        $("#progdi").val(progdi);
+        $("#no_telp").val(no_telp);
+        $("#email").val(email);
         $("#update").click(function() {
-            var id = $("#id").val();
-            var title = $("#title").val();
-            var duration = $("#duration").val();
-            var price = $("#price").val();
-            var dataString = "id=" + id + "&title=" + title + "&duration=" + duration + "&price=" + price + "&update=";
+            var id_mhs = $("#id_mhs").val();
+            var nama = $("#nama").val();
+            var nim = $("#nim").val();
+            var progdi = $("#progdi").val();
+			var no_telp = $("#no_telp").val();
+            var email = $("#email").val();
+            
+            var dataString = "id_mhs=" + id_mhs + "&nama=" + nama + "&nim=" + nim +"&progdi" + progdi + "&no_telp=" + no_telp + "&email=" + email + "&update=";
             $.ajax({
                 type: "POST",
-                url: "https://kungfumas.000webhostapp.com/update.php",
+                url: "https://samafatmawati.000webhostapp.com/appcordova/www/update.php",
                 data: dataString,
                 crossDomain: true,
                 cache: false,
@@ -41,11 +49,11 @@
 
         });
         $("#delete").click(function() {
-            var id = $("#id").val();
-            var dataString = "id=" + id + "&delete=";
+            var id_mhs = $("#id_mhs").val();
+            var dataString = "id_mhs=" + id_mhs + "&delete=";
             $.ajax({
                 type: "GET",
-                url: "https://kungfumas.000webhostapp.com/delete.php",
+                url: "https://samafatmawati.000webhostapp.com/appcordova/www/delete.php",
                 data: dataString,
                 crossDomain: true,
                 cache: false,
@@ -71,26 +79,55 @@
     <div class="bar bar-header bar-positive" style="margin-bottom:80px;">
         <a href="index.html" class="button button-clear">Home</a>
         <h1 class="title">Update Database</h1>
-        <a class="button button-clear" href="readjson.html">Read JSON</a>
+        <a class="button button-clear" href="readjson.html">Lihat Data</a>
     </div>
     <br/>
     <br/>
     <div class="list">
-        <input type="hidden" id="id" value="" />
+       
         <div class="item">
-            <label>Title</label>
-            <input type="text" id="title" value="" />
+            <label>NIM</label>
+            <input type="text" id="nim" value="" />
         </div>
         <div class="item">
-            <label>Duration</label>
-            <input type="text" id="duration" value="" />
+            <label>Nama</label>
+            <input type="text" id="nama" value="" />
         </div>
+
         <div class="item">
-            <label>Price</label>
-            <input type="text" id="price" value="" />
+        <label>Pilih Program Studi:
+        <select id="progdi">
+          <option value="Teknik Informatika">Teknik Informatika</option>
+          <option value="Sistem Informasi">Sistem Informasi</option>
+          <option value="Manajemen Informatika">Manajemen Informatika</option>
+        </select>
+      </label>
+      </div>
+        
+		<div class="item">
+        <label>Pilih Sertifikasi:
+        <select id="sertif">
+          <option value="CISCO">Cisco</option>
+          <option value="FORESEC">Foresec</option>
+          <option value="ORACLE">Oracle</option>
+          <option value="MTA">MTA</option>
+          <option value="TOEFL">Toefl</option>
+        </select>
+      </label>
+      </div>
+	  
+        <div class="item">
+            <label>Email</label>
+            <input type="text" id="email" value="" />
         </div>
+        
         <div class="item">
-            <input type="button" id="update" class="button button-block" value="Update" />
+            <label>No HP</label>
+            <input type="text" id="nohp" value="" />
+        </div>
+       
+        <div class="item">
+            <input type="button" id="update" class="button button-block" value="Update"  />
             <input type="button" id="delete" class="button button-block" value="Delete" />
         </div>
     </div>
