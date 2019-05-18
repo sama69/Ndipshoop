@@ -6,14 +6,19 @@
     <script type="text/javascript">
     $(document).ready(function() {
         $("#insert").click(function() {
-            var title = $("#title").val();
-            var duration = $("#duration").val();
-            var price = $("#price").val();
-            var dataString = "title=" + title + "&duration=" + duration + "&price=" + price + "&insert=";
-            if ($.trim(title).length > 0 & $.trim(duration).length > 0 & $.trim(price).length > 0) {
+            var id_mhs= $("#id_mhs").val();
+            var nama = $("#nama").val();
+			var nim = $("#nim").val();
+			var progdi = $("#progdi").val();
+            var no_telp = $("#no_telp").val();
+            var email = $("#email").val();
+            
+            
+            var dataString = "id_mhs=" + id_mhs + "&nama=" + nama +"&nim=" + nim +  "&progdi=" + progdi + "&no_telp=" + no_telp +"&email=" + email +  "&insert=";
+            if ($.trim(id_mhs).length > 0 & $.trim(nama).length > 0  & $.trim(nim).length > 0 & $.trim(progdi).length > 0  & $.trim(no_telp).length > 0 & $.trim(email).length > 0) {
                 $.ajax({
                     type: "POST",
-                    url: "https://kungfumas.000webhostapp.com/insert.php",
+                    url: "https://samafatmawati.000webhostapp.com/appcordova/www/insert.php",
                     data: dataString,
                     crossDomain: true,
                     cache: false,
@@ -38,29 +43,63 @@
 
 <body>
     <div class="bar bar-header bar-positive" style="margin-bottom:80px;">
-        <h1 class="title">Insert Database</h1>
-        <a class="button button-clear" href="readjson.html">Read JSON</a>
+        <h1 class="title">Pendaftaran Sertifikasi</h1>
+        <a class="button button-clear" href="readjson.html">Lihat Data</a>
     </div>
     <br/>
     <br/>
+   
     <div class="list">
-        <input type="hidden" id="id" value="" />
+  
         <div class="item">
-            <label>Title</label>
-            <input type="text" id="title" value="" />
+            <label>NIM</label>
+            <input type="text" id="nim" value="" />
         </div>
         <div class="item">
-            <label>Duration</label>
-            <input type="text" id="duration" value="" />
+            <label>Nama</label>
+            <input type="text" id="nama" value="" />
         </div>
+
         <div class="item">
-            <label>Price</label>
-            <input type="text" id="price" value="" />
-        </div>
+        <label>Pilih Program Studi:
+        <select id="progdi">
+          <option value="Teknik Informatika">Teknik Informatika</option>
+          <option value="Sistem Informasi">Sistem Informasi</option>
+          <option value="Manajemen Informatika">Manajemen Informatika</option>
+        </select>
+      </label>
+      </div>
+      
+	  <div class="item">
+        <label>Pilih Sertifikasi:
+        <select id="sertif">
+          <option value="CISCO">Cisco</option>
+          <option value="FORESEC">Foresec</option>
+          <option value="ORACLE">Oracle</option>
+          <option value="MTA">MTA</option>
+          <option value="TOEFL">Toefl</option>
+        </select>
+      </label>
+      </div>
+	  
         <div class="item">
-            <input type="button" id="insert" class="button button-block" value="Insert" />
+            <label>no telp</label>
+            <input type="text" id="email" value="" />
         </div>
+    
+	 <div class="item">
+            <label>Email</label>
+            <input type="text" id="nohp" value="" />
+        </div>
+        
+        
+        
+        <div class="item">
+            <input type="button" id="insert" class="button button-block" value="Insert"  />
+        </div>
+      
     </div>
+     
 </body>
 
 </html>
