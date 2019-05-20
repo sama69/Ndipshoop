@@ -17,3 +17,4 @@ $nim=$_POST['nim'];
   echo "error";
  }
  ?>
+   
