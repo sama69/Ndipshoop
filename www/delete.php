@@ -1,9 +1,9 @@
 <?php
  include "db.php";
- if(isset($_GET['id']))
+ if(isset($_GET['nim']))
  {
- $id=$_GET['id'];
- $q=mysqli_query($con,"delete from `dt_mhs` where `id_mhs`='$id_mhs'");
+ $nim=$_GET['nim'];
+ $q=mysqli_query($con,"delete from `data_mhs` where `nim`='$nim'");
  if($q)
  echo "success";
  else
