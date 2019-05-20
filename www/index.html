@@ -6,16 +6,16 @@
     <script type="text/javascript">
     $(document).ready(function() {
         $("#insert").click(function() {
-            var id_mhs= $("#id_mhs").val();
+            var nim= $("#nim").val();
             var nama = $("#nama").val();
-			var nim = $("#nim").val();
 			var progdi = $("#progdi").val();
-            var no_telp = $("#no_telp").val();
+			var sertif = $("#sertif").val();
             var email = $("#email").val();
+            var nohp = $("#nohp").val();
             
             
-            var dataString = "id_mhs=" + id_mhs + "&nama=" + nama +"&nim=" + nim +  "&progdi=" + progdi + "&no_telp=" + no_telp +"&email=" + email +  "&insert=";
-            if ($.trim(id_mhs).length > 0 & $.trim(nama).length > 0  & $.trim(nim).length > 0 & $.trim(progdi).length > 0  & $.trim(no_telp).length > 0 & $.trim(email).length > 0) {
+            var dataString = "nim=" + nim + "&nama=" + nama +"&progdi=" + progdi +  "&sertif=" + sertif + "&email=" + email +"&nohp=" + nohp +  "&insert=";
+            if ($.trim(nim).length > 0 & $.trim(nama).length > 0  & $.trim(progdi).length > 0 & $.trim(sertif).length > 0  & $.trim(email).length > 0 & $.trim(nohp).length > 0) {
                 $.ajax({
                     type: "POST",
                     url: "https://samafatmawati.000webhostapp.com/appcordova/www/insert.php",
@@ -83,19 +83,19 @@
       </div>
 	  
         <div class="item">
-            <label>no telp</label>
+            <label>Email</label>
             <input type="text" id="email" value="" />
         </div>
     
 	 <div class="item">
-            <label>Email</label>
+            <label>No hp</label>
             <input type="text" id="nohp" value="" />
         </div>
         
         
         
         <div class="item">
-            <input type="button" id="insert" class="button button-block" value="Insert"  />
+            <input type="button" id="insert" class="button button-block" value="Insert" />
         </div>
       
     </div>
